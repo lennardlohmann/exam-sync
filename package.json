@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky",
-    "format:write": "prettier -- write . --ignore unknown",
+    "format:write": "pnpm prettier --write . --ignore-path .prettierignore",
     "format:check": "prettier --check ."
   },
   "dependencies": {
