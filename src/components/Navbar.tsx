@@ -19,7 +19,7 @@ const Navbar = () => {
               Sign in
             </Link>
             <Link
-              href="/get-started"
+              href="/auth/login"
               className={buttonVariants({
                 variant: 'default',
                 className: 'bg-gray-900 text-white hover:bg-gray-800',
