@@ -7,9 +7,9 @@ import { buttonVariants } from '@/components/ui/button';
 export default function Home() {
   return (
     <>
-      <div>
-        <MaxWidthWrapper className="mt-28 mb-12 flex max-w-prose flex-col items-center justify-center sm:mt-40">
-          <div className="bg-background focus-indicator rounded-full border p-4 shadow-lg backdrop-blur-sm">
+      <div className="min-h-screen bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]">
+        <MaxWidthWrapper className="mb-12 flex max-w-prose flex-col items-center justify-center">
+          <div className="bg-background focus-indicator mt-28 rounded-full border p-4 shadow-lg backdrop-blur-sm sm:mt-15">
             <p className="text-foreground text-xl font-medium">
               The app is up and running!
             </p>
@@ -23,25 +23,12 @@ export default function Home() {
             upload your file and ask any questions that come up.
           </p>
         </MaxWidthWrapper>
-        <div className="mx-auto mt-8 flex items-center justify-center">
-          <Link
-            href="/dashboard"
-            className={buttonVariants({
-              className: 'text-primary-50 bg-blue-600',
-            })}
-          >
-            Get Started <ArrowRightCircleIcon className="ml-2 h-5 w-5" />
-          </Link>
-          <ThemeSwitch className="m-4">jödfis</ThemeSwitch>
-        </div>
-      </div>
 
-      {/* value proposition section */}
-      <div>
+        {/* value proposition section */}
         <div className="relative isolate">
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+            className="pointer-events-none absolute inset-x-0 -top-80 -z-10 transform-gpu overflow-hidden blur-3xl"
           >
             <div
               style={{
@@ -50,6 +37,18 @@ export default function Home() {
               }}
               className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-purple-500/30 to-pink-500/30 opacity-100 blur-3xl sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
             ></div>
+          </div>
+
+          <div className="mx-auto mt-8 flex items-center justify-center">
+            <Link
+              href="/dashboard"
+              className={buttonVariants({
+                className: 'text-primary-50 bg-blue-600',
+              })}
+            >
+              Get Started <ArrowRightCircleIcon className="ml-2 h-5 w-5" />
+            </Link>
+            <ThemeSwitch className="m-4">jödfis</ThemeSwitch>
           </div>
         </div>
       </div>
