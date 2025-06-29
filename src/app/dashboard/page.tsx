@@ -1,24 +1,18 @@
 import { redirect } from 'next/navigation';
-import { headers } from 'next/headers';
+import { createClient } from '@/utils/supabase/server';
 
-export default async function RedirectPage() {
-  const session = await auth.api.getSession({
-    headers: await headers(),
-  });
+export default async function DashboardPage() {
+  const supabase = await createClient();
+
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
 
   if (!session) {
     return redirect('/auth/login');
   }
 
-  const role = session.user.role;
-
-  if (role === 'admin') {
-    return redirect(AdminRoutes.DASHBOARD);
-  }
-
-  if (role === 'company') {
-    return redirect(CompanyRoutes.DASHBOARD);
-  }
-
-  return redirect(UserRoutes.DASHBOARD);
+  // For now, redirect all users to a simple dashboard
+  // You can implement role-based routing later
+  return redirect('/');
 }
