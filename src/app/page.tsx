@@ -1,13 +1,18 @@
+'use client';
+
 import MaxWidthWrapper from '../components/max-width-wrapper';
 import Link from 'next/link';
 import { ArrowRightCircleIcon } from '@heroicons/react/16/solid';
 import { ThemeSwitch } from '@/components/theme-switch';
 import { buttonVariants } from '@/components/ui/button';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 export default function Home() {
   return (
     <>
       <div className="min-h-screen bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]">
+        <MouseTracker />
         <MaxWidthWrapper className="mb-12 flex max-w-prose flex-col items-center justify-center">
           <div className="bg-background focus-indicator mt-28 rounded-full border p-4 shadow-lg backdrop-blur-sm sm:mt-15">
             <p className="text-foreground text-xl font-medium">
@@ -48,10 +53,51 @@ export default function Home() {
             >
               Get Started <ArrowRightCircleIcon className="ml-2 h-5 w-5" />
             </Link>
-            <ThemeSwitch className="m-4">jödfis</ThemeSwitch>
+            <ThemeSwitch className="m-4" />
           </div>
         </div>
       </div>
     </>
   );
 }
+
+const MouseTracker = () => {
+  const [mousePosition, setMousePosition] = useState<{ x: number; y: number }>({
+    x: 0,
+    y: 0,
+  });
+  const [delayedPosition, setDelayedPosition] = useState<{
+    x: number;
+    y: number;
+  }>({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const updateMousePosition = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener('mousemove', updateMousePosition);
+
+    return () => {
+      window.removeEventListener('mousemove', updateMousePosition);
+    };
+  }, []);
+
+  useEffect(() => {
+    const delay = 12; // 100ms delay
+    const timer = setTimeout(() => {
+      setDelayedPosition(mousePosition);
+    }, delay);
+
+    return () => clearTimeout(timer);
+  }, [mousePosition]);
+
+  return (
+    <div
+      className="pointer-events-none fixed inset-0 z-[-1]"
+      style={{
+        background: `radial-gradient(100px at ${delayedPosition.x}px ${delayedPosition.y}px, rgba(244, 114, 182, 0.15), transparent 50%)`,
+      }}
+    />
+  );
+};

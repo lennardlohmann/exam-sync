@@ -15,11 +15,14 @@ const Navbar = () => {
             <Link href="/pricing" className="text-gray-700 hover:text-gray-900">
               Pricing
             </Link>
-            <Link href="/sign-in" className="text-gray-700 hover:text-gray-900">
+            <Link
+              href="/auth/login"
+              className="text-gray-700 hover:text-gray-900"
+            >
               Sign in
             </Link>
             <Link
-              href="/auth/login"
+              href="/auth/signup"
               className={buttonVariants({
                 variant: 'default',
                 className: 'bg-gray-900 text-white hover:bg-gray-800',
