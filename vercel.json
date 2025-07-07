@@ -1,0 +1,11 @@
+{
+  "buildCommand": "next build",
+  "functions": {
+    "app/api/**/*.ts": {
+      "runtime": "nodejs20.x"
+    }
+  },
+  "env": {
+    "SKIP_ENV_VALIDATION": "1"
+  }
+}
