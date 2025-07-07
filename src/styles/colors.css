@@ -340,6 +340,11 @@
   --color-accent-950: var(--accent-950);
 
   --color-accent: var(--accent);
+  --color-accent-foreground: var(--foreground);
+
+  /* Primary button colors */
+  --color-primary: var(--color-blue-600);
+  --color-primary-foreground: var(--color-white);
 
   /* Background colors */
   --color-background: var(--background);
@@ -347,13 +352,15 @@
 
   /* Foreground colors */
   --color-foreground: var(--foreground);
-  --color-secondary: var(--secondary);
+  --color-secondary: var(--background-muted);
+  --color-secondary-foreground: var(--foreground);
   --color-muted-foreground: var(--muted-foreground);
 
   /* Border colors */
   --color-border: var(--border);
   --color-border-secondary: var(--border-secondary);
   --color-border-input: var(--border-input);
+  --color-input: var(--background-muted);
 
   /* Ring color */
   --color-ring: var(--ring);
