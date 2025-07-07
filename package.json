@@ -13,7 +13,7 @@
     "db:stop": "supabase stop",
     "format:check": "prettier --check .",
     "postinstall": "prisma generate",
-    "vercel-build": "prisma migrate deploy && prisma generate && next build",
+    "vercel-build": "prisma generate && next build",
     "db:migrate:deploy": "prisma migrate deploy"
   },
   "dependencies": {
